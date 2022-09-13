@@ -7,6 +7,7 @@ jobs:
   Change_manifest_with_commit_hash:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Configuration for prod-test branch
         if: ${{ github.ref == 'refs/heads/test' }}
         run: |
