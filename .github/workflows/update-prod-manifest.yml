@@ -15,7 +15,7 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'Deploy to production'
-          push: true
+          push: false
       - uses: everlytic/branch-merge@1.1.2
         with:
           github_token: ${{ github.token }}
