@@ -3,13 +3,7 @@ on:
   push:
     branches:
       - test
-  #  workflow_run:
-  #   workflows: ["dockerhub_workflow_test"]
-  #   types:
-  #     - completed
-
-#--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
-jobs:
+ jobs:
   Change_manifest_with_commit_hash:
     runs-on: ubuntu-latest
     steps:
