@@ -14,11 +14,11 @@ jobs:
           echo we are in main branch ${{ github.token }}
           echo ${{ github.ref }}
           ls -a
-          sed -i 's/name: junction/name: junction-jay/g' infra/namespace.yaml
+          sed -i 's/junction/junction-jay/g' infra/namespace.yaml
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'Deploy to production'
-          push: false
+          push: true
       - uses: everlytic/branch-merge@1.1.2
         with:
           github_token: ${{ github.token }}
