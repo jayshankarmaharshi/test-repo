@@ -12,7 +12,7 @@ jobs:
         run: |
           echo we are in main branch ${{ github.token }}
           echo ${{ github.ref }}
-          sed -i 's/name: junction/name: junction-jay/g' namespace.yml
+          sed -i 's/name: junction/name: junction-jay/g' namespace.yaml
       # - uses: EndBug/add-and-commit@v9
       #   with:
       #     message: 'Deploy to production'
