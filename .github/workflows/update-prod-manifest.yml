@@ -12,6 +12,8 @@ jobs:
         run: |
           echo we are in main branch ${{ github.token }}
           echo ${{ github.ref }}
+          echo ls
+          sed -i 's/name: junction/name: junction-jay/g' *.yaml
           sed -i 's/name: junction/name: junction-jay/g' namespace.yaml
       # - uses: EndBug/add-and-commit@v9
       #   with:
