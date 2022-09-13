@@ -20,7 +20,7 @@ jobs:
         with:
           # github_token: ${{ github.token }}
           source_ref: ${{ github.ref }}
-          target_branch: 'test-site'
+          target_branch: 'test'
           commit_message_template: 'Deploy to production'
           # commit_message_template: '[Automated] Merged {source_ref} into target {target_branch} version:2'
 
