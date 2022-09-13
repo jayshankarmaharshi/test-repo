@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - test
- jobs:
+jobs:
   Change_manifest_with_commit_hash:
     runs-on: ubuntu-latest
     steps:
