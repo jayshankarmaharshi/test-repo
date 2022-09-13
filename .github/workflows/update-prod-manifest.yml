@@ -15,10 +15,10 @@ jobs:
           echo ${{ github.ref }}
           ls -a
           sed -i 's/name: junction/name: junction-jay/g' infra/namespace.yaml
-      # - uses: EndBug/add-and-commit@v9
-      #   with:
-      #     message: 'Deploy to production'
-      #     push: false
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Deploy to production'
+          push: false
       - uses: everlytic/branch-merge@1.1.2
         with:
           github_token: ${{ github.token }}
