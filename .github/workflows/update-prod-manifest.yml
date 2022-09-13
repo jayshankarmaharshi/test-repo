@@ -10,15 +10,15 @@ jobs:
       - name: Configuration for prod-test branch
         if: ${{ github.ref == 'refs/heads/test' }}
         run: |
-          echo we are in main branch
-
+          echo we are in main branch ${{ github.token }}
+          echo ${{ github.ref }}
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'Deploy to production'
           push: true
       - uses: everlytic/branch-merge@1.1.2
         with:
-          # github_token: ${{ github.token }}
+          github_token: ${{ github.token }}
           source_ref: ${{ github.ref }}
           target_branch: 'test'
           commit_message_template: 'Deploy to production'
