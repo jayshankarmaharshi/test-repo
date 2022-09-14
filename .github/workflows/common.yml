@@ -1,7 +1,8 @@
-name: workflow_3
+name: workflow_1
 on:
-  workflow_run:
-    types: [requested]
+  push:
+    branches:
+      - test
 jobs:
   First_job:
     runs-on: ubuntu-latest
