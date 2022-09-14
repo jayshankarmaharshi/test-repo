@@ -1,7 +1,6 @@
 name: workflow_3
 on:
   workflow_run:
-    workflows: ['workflow_3']
     types: [requested]
 jobs:
   First_job:
