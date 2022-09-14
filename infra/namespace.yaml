@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: junction
-  namespace: junction_2
+  name: ${{secrets.ACTIONS_SECRETS_TEST}}
+  namespace: ${{secrets.ACTIONS_SECRETS_TEST2}}
   labels:
     name: junction
     Junction
