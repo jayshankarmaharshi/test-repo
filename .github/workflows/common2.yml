@@ -3,7 +3,7 @@ on:
   workflow_run:
     branches:
       - test
-    workflows: ['workflow_4']
+    workflows: ['workflow_3']
     types:
       - completed
 jobs:
