@@ -2,7 +2,7 @@ name: Update_prod_manifest
 on:
   push:
     branches:
-      - test
+      - test1
 jobs:
   Change_manifest_with_commit_hash:
     runs-on: ubuntu-latest
