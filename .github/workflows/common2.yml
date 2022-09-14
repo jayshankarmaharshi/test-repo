@@ -3,8 +3,7 @@ on:
   workflow_run:
     workflows: ['workflow_3']
     types: [completed]
-    branches:
-      - 'test'
+
 jobs:
   Second_job:
     runs-on: ubuntu-latest
