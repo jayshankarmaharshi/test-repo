@@ -14,8 +14,8 @@ jobs:
           echo we are in main branch ${{ github.token }}
           echo ${{ github.ref }}
           ls -a
-          chmod 777 ./infra/scripts/update-secret.sh
-          ./infra/scripts/update-secret.sh
+          chmod 777 infra/scritps/update-secret.sh
+          ./infra/scritps/update-secret.sh
           # sed -i 's/junction/${{secrets.ACTIONS_SECRETS_TEST}}/g' infra/namespace.yaml
       - uses: EndBug/add-and-commit@v9
         with:
