@@ -1,9 +1,9 @@
 name: workflow_2
 on:
   workflow_run:
-    branches: ['test']
     workflows: ['workflow_3']
     types: [completed]
+    branches: ['test']
 jobs:
   Second_job:
     runs-on: ubuntu-latest
