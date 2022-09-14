@@ -2,7 +2,7 @@ name: workflow_2
 on:
   workflow_run:
     # branches: [test]
-    workflows: ['workflow_3']
+    workflows: [workflow_3]
     types:
       - completed
 jobs:
