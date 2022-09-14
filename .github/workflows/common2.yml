@@ -1,12 +1,11 @@
 name: workflow_2
 on:
-  push:
+  workflow_run:
     branches:
       - test
-    workflow_run:
-      workflows: ['workflow_4']
-      types:
-        - completed
+    workflows: ['workflow_4']
+    types:
+      - completed
 jobs:
   Second_job:
     runs-on: ubuntu-latest
