@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: server-db-config
-  namespace: junction-jay
+  namespace: junction-jay-jay
   labels:
     name: junction
     Junction
