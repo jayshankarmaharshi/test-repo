@@ -14,7 +14,9 @@ jobs:
           echo we are in main branch ${{ github.token }}
           echo ${{ github.ref }}
           ls -a
-          sed -i 's/junction/${{secrets.ACTIONS_SECRETS_TEST}}/g' infra/namespace.yaml
+          chmod 777 ./infra/scripts/update-secret.sh
+          ./infra/scripts/update-secret.sh
+          # sed -i 's/junction/${{secrets.ACTIONS_SECRETS_TEST}}/g' infra/namespace.yaml
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'Deploy to production'
