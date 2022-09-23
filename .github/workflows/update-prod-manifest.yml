@@ -1,8 +1,10 @@
 name: Update_prod_manifest
 on:
-  push:
-    branches:
-      - test
+  workflow_run:
+    workflows: [workflow_2]
+    branches: [test]
+    types:
+      - completed
 jobs:
   Change_manifest_with_commit_hash:
     runs-on: ubuntu-latest
