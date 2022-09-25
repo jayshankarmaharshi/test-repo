@@ -14,9 +14,11 @@ git commit -m "$3"
 git push
 git rebase "$1"
 
-# git pull
-git checkout "$2"
 git pull
+echo "Update site branch"
+git checkout "origin/$2"
+git pull
+
 git merge "$1"
 git push 
 git checkout "$1"
