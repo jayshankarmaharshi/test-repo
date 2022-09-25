@@ -9,19 +9,19 @@ echo "Hello branch $2 "
 echo "Commit message $3"
 
 # Make changes in main branch
+git rebase "$1"
 git add .
 git commit -m "$3"
 git push
 
-git pull
+# git pull
 git checkout "$2"
 git pull
-git rebase "$1"
-git checkout "$1"
-git merge "$2"
+git merge "$1"
 git push 
+git checkout "$1"
+git pull
 # git checkout "$1"
-# git pull
 
 echo "Task completed"
 # git rebase "$2"
