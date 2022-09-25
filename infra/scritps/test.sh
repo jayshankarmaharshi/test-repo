@@ -14,13 +14,14 @@ git commit -m "$3"
 git push
 
 git pull
-git rebase "$2"
 git checkout "$2"
 git pull
-git merge "$1"
-git push 
+git rebase "$1"
 git checkout "$1"
-git pull
+git merge "$2"
+git push 
+# git checkout "$1"
+# git pull
 
 echo "Task completed"
 # git rebase "$2"
