@@ -22,6 +22,7 @@ git push
 git checkout "$1"
 git pull
 
+echo "Task completed"
 # git rebase "$2"
 # git commit -m "$3"
 # git pull
