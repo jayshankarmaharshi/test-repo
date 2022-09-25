@@ -1,34 +1,36 @@
 name: Update_prod_manifest
 on:
-  workflow_run:
-    workflows: [workflow_2]
-    branches: [test]
-    types:
-      - completed
+  push:
+    branches:
+      - jay-test
 jobs:
   Change_manifest_with_commit_hash:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Configuration for prod-test branch
-        if: ${{ github.ref == 'refs/heads/test' }}
+        if: ${{ github.ref == 'refs/heads/jay-test' }}
         run: |
           echo we are in main branch ${{ github.token }}
           echo ${{ github.ref }}
           ls -a
           chmod 777 infra/scritps/update-secret.sh
           ./infra/scritps/update-secret.sh
+
           # sed -i 's/junction/${{secrets.ACTIONS_SECRETS_TEST}}/g' infra/namespace.yaml
-      - uses: EndBug/add-and-commit@v9
-        with:
-          message: 'Deploy to production'
-          push: true
-      - uses: everlytic/branch-merge@1.1.2
-        with:
-          github_token: ${{ github.token }}
-          source_ref: ${{ github.ref }}
-          target_branch: 'test-site'
-          commit_message_template: 'Deploy to production'
-          # commit_message_template: '[Automated] Merged {source_ref} into target {target_branch} version:2'
+
+          chmod 777 infra/scritps/test.sh
+          ./infra/scritps/test.sh jay-test jay-test-site  'Deploy to production'
+      # - uses: EndBug/add-and-commit@v9
+      #   with:
+      #     message: 'Deploy to production'
+      #     push: true
+      # - uses: everlytic/branch-merge@1.1.2
+      #   with:
+      #     github_token: ${{ github.token }}
+      #     source_ref: ${{ github.ref }}
+      #     target_branch: 'jay-test-site'
+      #     commit_message_template: 'Deploy to production'
+      #     # commit_message_template: '[Automated] Merged {source_ref} into target {target_branch} version:2'
 
       - run: echo Merge completed
