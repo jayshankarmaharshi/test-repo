@@ -12,9 +12,10 @@ echo "Commit message $3"
 git add .
 git commit -m "$3"
 git push
-git rebase "$1"
+git rebase "$2"
 
 git pull
+
 echo "Update site branch"
 git checkout "origin/$2"
 git pull
