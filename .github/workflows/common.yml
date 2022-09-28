@@ -21,7 +21,7 @@ jobs:
           ./.github/workflows/manifest-scripts/update-dev-manifest.sh ${{ github.sha }}
       - uses: EndBug/add-and-commit@v9
         with:
-          message: 'Deploy to development'
+          message: 'Deploy to development test'
           push: true
       - uses: everlytic/branch-merge@1.1.2
         with:
