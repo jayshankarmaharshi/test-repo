@@ -1,11 +1,78 @@
-name: workflow_1
+name: Update_manifest
 on:
   push:
     branches:
-      - test
+      - dev-test02
+      - staging-test
+      - prod-test
+
+#--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
 jobs:
-  First_job:
+  Change_dev_manifest_with_commit_hash:
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/dev-test02' }}
     steps:
       - uses: actions/checkout@v2
-      - run: echo workflow1
+      - run: echo change commit hash in manifest
+      # change data based on site based
+      - name: Configuration for dev-test branch
+        run: |
+          chmod +x ./.github/workflows/manifest-scripts/update-dev-manifest.sh
+          ./.github/workflows/manifest-scripts/update-dev-manifest.sh ${{ github.sha }}
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Deploy to development'
+          push: true
+      - uses: everlytic/branch-merge@1.1.2
+        with:
+          github_token: ${{ github.token }}
+          source_ref: ${{ github.ref }}
+          target_branch: 'dev-site02'
+          commit_message_template: 'Deploy to development'
+          # commit_message_template: '[Automated] Merged {source_ref} into target {target_branch} version:2'
+
+  Change_stag_manifest_with_commit_hash:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/staging-test' }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo change commit hash in manifest
+      # change data based on site based
+      - name: Configuration for dev-test branch
+        run: |
+          chmod +x ./.github/workflows/manifest-scripts/update-dev-manifest.sh
+          ./.github/workflows/manifest-scripts/update-dev-manifest.sh ${{ github.sha }}
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Deploy to development'
+          push: true
+      - uses: everlytic/branch-merge@1.1.2
+        with:
+          github_token: ${{ github.token }}
+          source_ref: ${{ github.ref }}
+          target_branch: 'staging-site01'
+          commit_message_template: 'Deploy to development'
+          # commit_message_template: '[Automated] Merged {source_ref} into target {target_branch} version:2'
+
+  Change_prod_manifest_with_commit_hash:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/prod-test' }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo change commit hash in manifest
+      # change data based on site based
+      - name: Configuration for dev-test branch
+        run: |
+          chmod +x ./.github/workflows/manifest-scripts/update-dev-manifest.sh
+          ./.github/workflows/manifest-scripts/update-dev-manifest.sh ${{ github.sha }}
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Deploy to development'
+          push: true
+      - uses: everlytic/branch-merge@1.1.2
+        with:
+          github_token: ${{ github.token }}
+          source_ref: ${{ github.ref }}
+          target_branch: 'prod-site01'
+          commit_message_template: 'Deploy to development'
+          # commit_message_template: '[Automated] Merged {source_ref} into target {target_branch} version:2''
