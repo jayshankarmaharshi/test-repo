@@ -3,12 +3,12 @@ name: Update_manifest
 on:
   workflow_run:
     workflows: [common_workflow]
-    # branches:
-    #   - dev-test02
-    #   - staging-test
-    #   - prod-test
-    types:
-      - completed
+    branches:
+      - dev-test02
+      - staging-test
+      - prod-test
+    # types:
+    #   - completed
 
 #--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
 jobs:
