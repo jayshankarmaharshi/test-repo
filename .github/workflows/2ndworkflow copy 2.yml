@@ -1,8 +1,8 @@
-name: Update_manifest
+name: Update_manifest3
 
 on:
   workflow_run:
-    workflows: [common_workflow]
+    workflows: [Update_manifest2]
     branches:
       - dev-test02
       - staging-test
@@ -17,5 +17,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo change commit hash in manifest
       - run: echo change commit hash in manifest
