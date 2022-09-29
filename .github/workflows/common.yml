@@ -1,4 +1,4 @@
-name: Update_manifest
+name: common_workflow
 on:
   push:
     branches:
