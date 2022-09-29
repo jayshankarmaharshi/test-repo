@@ -58,3 +58,15 @@ jobs:
           source_ref: ${{ github.ref }}
           target_branch: 'prod-site01'
           commit_message_template: 'Deploy to development'
+
+  Check_last_status:
+    needs:
+      [
+        Change_dev_manifest_with_commit_hash,
+        Change_stag_manifest_with_commit_hash,
+        Change_prod_manifest_with_commit_hash
+      ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo completed
