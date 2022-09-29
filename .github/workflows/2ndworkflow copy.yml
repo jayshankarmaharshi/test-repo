@@ -1,11 +1,13 @@
-name: Update_manifest
+name: Update_manifest2
 
 on:
   workflow_run:
     workflows: [Update_manifest]
     branches:
+      - dev-test02
       - staging-test
       - prod-test
+
     types:
       - completed
 
