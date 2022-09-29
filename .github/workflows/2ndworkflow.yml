@@ -2,7 +2,7 @@ name: Update_manifest
 
 on:
   workflow_run:
-    workflows: ['common_workflow']
+    workflows: [common_workflow]
     # branches:
     #   - dev-test02
     #   - staging-test
