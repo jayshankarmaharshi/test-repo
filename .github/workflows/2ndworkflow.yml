@@ -4,11 +4,9 @@ on:
   workflow_run:
     workflows: [common_workflow]
     branches:
-      - dev-test02
       - staging-test
-      - prod-test
-    # types:
-    #   - completed
+    types:
+      - completed
 
 #--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
 jobs:
