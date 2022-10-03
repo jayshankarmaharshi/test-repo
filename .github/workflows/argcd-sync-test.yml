@@ -1,0 +1,21 @@
+name: Update_manifest
+
+on:
+  push:
+    branches:
+      - argo-sync-test
+
+#--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
+jobs:
+  Argocd-sync-test_:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Sync ArgoCD DEV Application
+        uses: omegion/argocd-actions@v1
+        with:
+          address: 'junction-argocd-dev.awarion.com'
+          token: ${{ secrets.ARGOCD_TOKEN }}
+          action: sync
+          appName: 'junction'
+      - run: echo ArgoCD DEV Application synced
