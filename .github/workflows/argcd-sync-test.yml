@@ -19,3 +19,4 @@ jobs:
           action: sync
           appName: 'junction'
       - run: echo ArgoCD DEV Application synced
+      - run: echo ArgoCD DEV Application synced
