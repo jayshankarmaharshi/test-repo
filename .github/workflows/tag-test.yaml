@@ -37,8 +37,8 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           tag: prod1-${{ github.sha }}
 
-      # - name: Tag snapshot
-      #   uses: tvdias/github-tagger@v0.0.1
-      #   with:
-      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
-      #     tag: prod1
+      - name: Tag snapshot
+        uses: tvdias/github-tagger@v0.0.1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          tag: prod1
