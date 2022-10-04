@@ -13,4 +13,4 @@ jobs:
       - run: echo Your are in workflow caller
 
   call-workflow-passing-data:
-    uses: .github/workflows/wokrflw-call.yml
+    uses: ./.github/workflows/wokrflw-call.yml@test-workflow-call
