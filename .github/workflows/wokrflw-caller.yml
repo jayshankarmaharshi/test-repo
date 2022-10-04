@@ -13,19 +13,13 @@ jobs:
       - run: echo Your are in workflow caller
 
   call-workflow-dev:
-    runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/test-workflow-call' }}
-    steps:
-      uses: ./.github/workflows/wokrflw-call-dev.yml
+    uses: ./.github/workflows/wokrflw-call-dev.yml
 
   call-workflow-prod:
-    runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/test-workflow-call-prod' }}
-    steps:
-      uses: ./.github/workflows/wokrflw-call-prod.yml
+    uses: ./.github/workflows/wokrflw-call-prod.yml
 
   call-workflow-stag:
-    runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/test-workflow-call-stag' }}
-    steps:
-      uses: ./.github/workflows/wokrflw-call-stag.yml
+    uses: ./.github/workflows/wokrflw-call-stag.yml
