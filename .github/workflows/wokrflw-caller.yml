@@ -1,4 +1,4 @@
-name: workflow_caller
+name: workflow_caller3
 on:
   push:
     branches:
@@ -13,4 +13,4 @@ jobs:
       - run: echo Your are in workflow caller
 
   call-workflow-passing-data:
-    uses: octo-org/example-repo/.github/workflows/wokrflw-call.yml
+    uses: .github/workflows/wokrflw-call.yml
