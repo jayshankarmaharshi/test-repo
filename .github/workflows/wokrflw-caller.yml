@@ -1,0 +1,16 @@
+name: workflow_caller
+on:
+  push:
+    branches:
+      - test-workflow-call
+
+#--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
+jobs:
+  workflow_call_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo Your are in workflow caller
+
+  call-workflow-passing-data:
+    uses: octo-org/example-repo/.github/workflows/wokrflw-call.yml

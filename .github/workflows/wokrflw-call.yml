@@ -1,0 +1,10 @@
+name: workflow_call1
+on: workflow_call
+
+#--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
+
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo you are in call workflow function
