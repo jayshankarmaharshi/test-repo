@@ -16,8 +16,16 @@ jobs:
       # Delete old Prod1
       - uses: dev-drprasad/delete-tag-and-release@v0.2.0
         with:
-          # delete_release: true # default: false
+          delete_release: true # default: false
           tag_name: prod1 # tag name to delete
+          # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: dev-drprasad/delete-tag-and-release@v0.2.0
+        with:
+          delete_release: true # default: false
+          tag_name: jay-test-tag # tag name to delete
           # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
