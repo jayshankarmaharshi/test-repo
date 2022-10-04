@@ -9,9 +9,10 @@ jobs:
     steps:
       - run: echo Hello
       - name: 'Checkout'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       # - run: chmod +x .github/workflows/tag.sh
       # - run: ./.github/workflows/tag.sh
+      # Delete old Prod1
       # Delete old Prod1
       - uses: dev-drprasad/delete-tag-and-release@v0.2.0
         with:
@@ -21,16 +22,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        # Create new Prod1-HASH
-      - name: Tag snapshot
-        uses: tvdias/github-tagger@v0.0.1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          tag: prod1-${{ github.sha }}
-
         # Create new Prod1
       - name: Tag snapshot
         uses: tvdias/github-tagger@v0.0.1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           tag: prod1
+
+        # Create new Prod1-HASH
+      - name: Tag snapshot
+        uses: tvdias/github-tagger@v0.0.1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          tag: prod1-${{ github.sha }}
