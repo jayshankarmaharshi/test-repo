@@ -10,26 +10,27 @@ jobs:
       - run: echo Hello
       - name: 'Checkout'
         uses: actions/checkout@v3
-
+      - run: chmod +x tag.sh
+      - run: ./tag.sh
         # Delete old Prod1
-      - uses: dev-drprasad/delete-tag-and-release@v0.2.0
-        with:
-          delete_release: true # default: false
-          tag_name: prod1 # tag name to delete
-          # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - uses: dev-drprasad/delete-tag-and-release@v0.2.0
+      #   with:
+      #     delete_release: true # default: false
+      #     tag_name: prod1 # tag name to delete
+      #     # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        # Create new Prod1-HASH
-      - name: Tag snapshot
-        uses: tvdias/github-tagger@v0.0.1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          tag: prod1-${{ github.sha }}
+      #   # Create new Prod1-HASH
+      # - name: Tag snapshot
+      #   uses: tvdias/github-tagger@v0.0.1
+      #   with:
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     tag: prod1-${{ github.sha }}
 
-        # Create new Prod1
-      - name: Tag snapshot
-        uses: tvdias/github-tagger@v0.0.1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          tag: prod1
+      #   # Create new Prod1
+      # - name: Tag snapshot
+      #   uses: tvdias/github-tagger@v0.0.1
+      #   with:
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     tag: prod1
