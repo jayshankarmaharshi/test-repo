@@ -16,10 +16,6 @@ jobs:
     if: ${{ github.ref == 'refs/heads/test-workflow-call' }}
     uses: ./.github/workflows/wokrflw-call-dev.yml
 
-  call-workflow-dev:
-    needs: [call-workflow-dev]
-    uses: ./.github/workflows/wokrflw-call-prod.yml
-
   call-workflow-prod:
     if: ${{ github.ref == 'refs/heads/test-workflow-call-prod' }}
     uses: ./.github/workflows/wokrflw-call-prod.yml
