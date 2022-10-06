@@ -25,6 +25,7 @@ jobs:
     uses: ./.github/workflows/wokrflw-call-stag.yml
 
   call-workflow-all:
+    needs: [call-workflow-stag]
     uses: ./.github/workflows/wokrflw-call-dev.yml
     # uses: ./.github/workflows/wokrflw-call-prod.yml
     # uses: ./.github/workflows/wokrflw-call-stag.yml
