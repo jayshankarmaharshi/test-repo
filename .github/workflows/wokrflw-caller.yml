@@ -23,10 +23,8 @@ jobs:
   call-workflow-stag:
     if: ${{ github.ref == 'refs/heads/test-workflow-call-stag' }}
     uses: ./.github/workflows/wokrflw-call-stag.yml
-  
+
   call-workflow-all:
     uses: ./.github/workflows/wokrflw-call-dev.yml
-    uses: ./.github/workflows/wokrflw-call-prod.yml
-    uses: ./.github/workflows/wokrflw-call-stag.yml
-
-  
+    # uses: ./.github/workflows/wokrflw-call-prod.yml
+    # uses: ./.github/workflows/wokrflw-call-stag.yml
