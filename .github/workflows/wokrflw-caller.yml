@@ -1,17 +1,6 @@
 name: workflow_caller3
-on:
-  push
-  # branches:
-  #   - test-workflow-call
-
-#--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
+on: push
 jobs:
-  # workflow_call_test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - run: echo Your are in workflow caller
-
   call-workflow-dev:
     if: ${{ github.ref == 'refs/heads/test-workflow-call' }}
     uses: ./.github/workflows/wokrflw-call-dev.yml
