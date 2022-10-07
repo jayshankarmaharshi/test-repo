@@ -18,6 +18,8 @@ jobs:
       - run: echo change commit hash in manifest
       - run: |
           sed -i 's/junction_2/${{secrets.ACTIONS_SECRETS_TEST2}}/g' infra/namespace.yaml
+          chmod +x ./infra/scripts/update-secrets.sh
+          ./infra/scripts/update-secrets.sh ${{ github.sha }}
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'Deploy to development test'
