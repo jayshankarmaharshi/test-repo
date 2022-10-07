@@ -9,4 +9,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo you are in call workflow function DEVELOPMENT
-      - run: echo ${{ secrets.ARGOCD_TOKEN }}
+      - run: echo  ${{ secrets.ARGOCD_TOKEN }}
+
+  Change_dev_manifest_with_commit_hash:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo change commit hash in manifest
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Deploy to development test'
+          push: true
+      - uses: everlytic/branch-merge@1.1.2
+        with:
+          github_token: ${{ github.token }}
+          source_ref: ${{ github.ref }}
+          target_branch: 'dev-site02'
+          commit_message_template: 'Deploy to development'
