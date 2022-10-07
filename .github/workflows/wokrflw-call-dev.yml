@@ -1,11 +1,11 @@
-name: workflow_call1
+name: workflow_call_dev
 on: workflow_call
 
 #--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
 
 jobs:
-  reusable_workflow_job:
-    runs-on: ubuntu-latest
+  reusable_workflow_job_dev:
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - run: echo you are in call workflow function DEVELOPMENT
