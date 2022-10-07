@@ -9,3 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo you are in call workflow function DEVELOPMENT
+      - run: echo ${{ secrets.ARGOCD_TOKEN }}
