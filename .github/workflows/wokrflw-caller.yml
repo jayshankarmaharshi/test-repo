@@ -1,0 +1,20 @@
+name: workflow_caller3
+on: push
+jobs:
+  call-workflow-dev:
+    if: ${{ github.ref == 'refs/heads/test-workflow-call' }}
+    uses: ./.github/workflows/wokrflw-call-dev.yml
+
+  call-workflow-prod:
+    if: ${{ github.ref == 'refs/heads/test-workflow-call-prod' }}
+    uses: ./.github/workflows/wokrflw-call-prod.yml
+
+  call-workflow-stag:
+    if: ${{ github.ref == 'refs/heads/test-workflow-call-stag' }}
+    uses: ./.github/workflows/wokrflw-call-stag.yml
+
+  call-workflow-all:
+    needs: [call-workflow-stag]
+    uses: ./.github/workflows/wokrflw-call-dev.yml
+    # uses: ./.github/workflows/wokrflw-call-prod.yml
+    # uses: ./.github/workflows/wokrflw-call-stag.yml

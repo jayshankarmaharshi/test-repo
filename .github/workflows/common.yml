@@ -1,4 +1,4 @@
-name: Update_manifest
+name: common_workflow
 on:
   push:
     branches:
@@ -9,13 +9,11 @@ on:
 #--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
 jobs:
   Change_dev_manifest_with_commit_hash:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: ${{ github.ref == 'refs/heads/dev-test02' }}
     steps:
       - uses: actions/checkout@v2
       - run: echo change commit hash in manifest
-      # change data based on site based
-
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'Deploy to development test'
@@ -26,16 +24,13 @@ jobs:
           source_ref: ${{ github.ref }}
           target_branch: 'dev-site02'
           commit_message_template: 'Deploy to development'
-          # commit_message_template: '[Automated] Merged {source_ref} into target {target_branch} version:2'
 
   Change_stag_manifest_with_commit_hash:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: ${{ github.ref == 'refs/heads/staging-test' }}
     steps:
       - uses: actions/checkout@v2
       - run: echo change commit hash in manifest
-      # change data based on site based
-
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'Deploy to development'
@@ -46,16 +41,13 @@ jobs:
           source_ref: ${{ github.ref }}
           target_branch: 'staging-site01'
           commit_message_template: 'Deploy to development'
-          # commit_message_template: '[Automated] Merged {source_ref} into target {target_branch} version:2'
 
   Change_prod_manifest_with_commit_hash:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: ${{ github.ref == 'refs/heads/prod-test' }}
     steps:
       - uses: actions/checkout@v2
       - run: echo change commit hash in manifest
-      # change data based on site based
-
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'Deploy to development'
@@ -66,4 +58,3 @@ jobs:
           source_ref: ${{ github.ref }}
           target_branch: 'prod-site01'
           commit_message_template: 'Deploy to development'
-          # commit_message_template: '[Automated] Merged {source_ref} into target {target_branch} version:2''
