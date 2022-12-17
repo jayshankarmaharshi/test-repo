@@ -9,7 +9,7 @@ on:
 #--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
 jobs:
   Change_dev_manifest_with_commit_hash:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: ${{ github.ref == 'refs/heads/dev-test02' }}
     steps:
       - uses: actions/checkout@v2
@@ -26,7 +26,7 @@ jobs:
           commit_message_template: 'Deploy to development'
 
   Change_stag_manifest_with_commit_hash:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: ${{ github.ref == 'refs/heads/staging-test' }}
     steps:
       - uses: actions/checkout@v2
@@ -43,7 +43,7 @@ jobs:
           commit_message_template: 'Deploy to development'
 
   Change_prod_manifest_with_commit_hash:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: ${{ github.ref == 'refs/heads/prod-test' }}
     steps:
       - uses: actions/checkout@v2

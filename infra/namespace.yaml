@@ -5,4 +5,3 @@ metadata:
   namespace: ${{secrets.ACTIONS_SECRETS_TEST2}}
   labels:
     name: junction
-    Junction
