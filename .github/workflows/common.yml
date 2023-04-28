@@ -51,3 +51,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo WE are running ACR............................
+
+  Change_dev_manifest_with_commit_hash9:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
