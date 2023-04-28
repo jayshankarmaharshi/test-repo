@@ -57,3 +57,50 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo WE are running ACR............................
+
+  Change_dev_manifest_with_commit_hash11:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
+  Change_dev_manifest_with_commit_hash12:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
+  Change_dev_manifest_with_commit_hash13:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
+  Change_dev_manifest_with_commit_hash14:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
+  Change_dev_manifest_with_commit_hash15:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
+  Change_dev_manifest_with_commit_hash16:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
+  Change_dev_manifest_with_commit_hash17:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
+  Change_dev_manifest_with_commit_hash18:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
+
+  Change_dev_manifest_with_commit_hash19:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo WE are running ACR............................
