@@ -2,59 +2,12 @@ name: common_workflow
 on:
   push:
     branches:
-      - dev-test02
-      - staging-test
-      - prod-test
+      - main
 
 #--------------------------------------------------------- UPDATE MANIFEST FILES WITH COMMIT HASHES -----------------------------------------------------------------
 jobs:
   Change_dev_manifest_with_commit_hash:
-    runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/dev-test02' }}
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
-      - run: echo change commit hash in manifest
-      - uses: EndBug/add-and-commit@v9
-        with:
-          message: 'Deploy to development test'
-          push: true
-      - uses: everlytic/branch-merge@1.1.2
-        with:
-          github_token: ${{ github.token }}
-          source_ref: ${{ github.ref }}
-          target_branch: 'dev-site02'
-          commit_message_template: 'Deploy to development'
-
-  Change_stag_manifest_with_commit_hash:
-    runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/staging-test' }}
-    steps:
-      - uses: actions/checkout@v2
-      - run: echo change commit hash in manifest
-      - uses: EndBug/add-and-commit@v9
-        with:
-          message: 'Deploy to development'
-          push: true
-      - uses: everlytic/branch-merge@1.1.2
-        with:
-          github_token: ${{ github.token }}
-          source_ref: ${{ github.ref }}
-          target_branch: 'staging-site01'
-          commit_message_template: 'Deploy to development'
-
-  Change_prod_manifest_with_commit_hash:
-    runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/prod-test' }}
-    steps:
-      - uses: actions/checkout@v2
-      - run: echo change commit hash in manifest
-      - uses: EndBug/add-and-commit@v9
-        with:
-          message: 'Deploy to development'
-          push: true
-      - uses: everlytic/branch-merge@1.1.2
-        with:
-          github_token: ${{ github.token }}
-          source_ref: ${{ github.ref }}
-          target_branch: 'prod-site01'
-          commit_message_template: 'Deploy to development'
+      - run: echo WE are running ACR............................
